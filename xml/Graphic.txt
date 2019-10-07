@@ -1,0 +1,54 @@
+package serverecho;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Vector;
+
+import javax.swing.*;
+
+public class Graphic {
+	private final JFrame frame = new JFrame();
+	private final JLabel chatWritten = new JLabel();
+	private final JPanel grid = new JPanel(new GridLayout(0,2));
+	private final JTextField chat = new JTextField();
+	private final JButton but = new JButton();
+	private final JLabel labelFinale = new JLabel();
+        private Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+	
+	public Graphic() {
+	};
+	
+        public void init(){
+		but.setText("Invia Messaggio");
+		grid.add(chat);
+                grid.add(chatWritten);
+                grid.add(but);
+		frame.add(grid);
+		frame.pack();
+		frame.setVisible(true);
+		frame.setTitle("Chat Sicura");
+		frame.setResizable(false);
+                setWindowCentered();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		evento e1 = new evento(); 
+		but.addActionListener(e1);
+        }
+       
+        
+        private void setWindowCentered() {
+		final int frameWidth = frame.getSize().width;
+		final int frameHeight = frame.getSize().height;
+		final int centreFrameX = (dim.width - frameWidth) / 2;
+		final int centreFrameY = (dim.height - frameHeight) / 2;
+		frame.setLocation(centreFrameX, centreFrameY);
+	}
+	        
+	private class evento implements ActionListener{
+                @Override
+		public void actionPerformed(ActionEvent e){
+                        
+		}
+	}
+
+}
